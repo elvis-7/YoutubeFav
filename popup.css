@@ -1,0 +1,40 @@
+#container {
+background-color : grey;
+min-height : 400px;
+min-width : 400px;
+}
+header {
+z-index : 3;
+background-color : black;
+height : 50px;
+color : black;
+position : fixed;
+width : 100%;
+top : 0%;
+text-align : center;
+box-shadow : 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+body {
+font-size : 100%;
+overflow-x : hidden;
+height : 400px;
+width : 400px;
+}
+img {
+height : 100px;
+width : 100px;
+}
+.btn{
+padding : 1px 1px 1px 1px;
+color : black;
+margin : 2px 5px 2px 2px;
+}
+.tile {
+width : 400px;
+height : 100px;
+margin : 5px 5px 5px 5px;
+background-color : white;
+}
+.playlist{
+	margin-top:40px;
+}
