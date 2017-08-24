@@ -1,16 +1,17 @@
 #container {
-background-color : grey;
+background-color : light-grey;
 min-height : 400px;
 min-width : 400px;
 }
 header {
 z-index : 3;
-background-color : black;
+background-color :#F44336  ;
 height : 50px;
 color : black;
 position : fixed;
 width : 100%;
 top : 0%;
+padding-top:8px;
 text-align : center;
 box-shadow : 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
@@ -24,17 +25,24 @@ img {
 height : 100px;
 width : 100px;
 }
-.btn{
-padding : 1px 1px 1px 1px;
-color : black;
-margin : 2px 5px 2px 2px;
+#list{
+	margin-top:50px;
 }
+
 .tile {
 width : 400px;
 height : 100px;
 margin : 5px 5px 5px 5px;
-background-color : white;
+background-color :#E0E0E0;
+box-shadow: 2px 2px 2px grey;
+opacity:1;
 }
-.playlist{
-	margin-top:40px;
+.tile:hover{
+	background-color:grey;
+}
+.removeButtons{
+	margin-left:250px;
+}
+.removeButtons > .removeshow{
+	opacity:0;
 }
