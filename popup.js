@@ -9,7 +9,21 @@ chrome.tabs.query({active: true,lastFocusedWindow: true}, function(tabs) {
 		   currUrl = tab.url;
 });
 
-
+function removeUrl(url){
+	chrome.storage.local.get('urlList' ,function(items){
+		for(var i = 0; i<items.urlList.length;i++){
+			var ret =items.urlList[i];
+			if(ret.currUrl == url){
+				items.urlList.splice(i,1);
+				chrome.storage.local.set({ urlList: items.urlList }, function () {
+				if (chrome.runtime.lastError) {
+                alert('ERROR: ' + chrome.runtime.lastError.message);
+				}
+            });
+			}
+		}
+	});
+}
 
 
  function youtubeMain(url){
@@ -43,9 +57,7 @@ chrome.tabs.query({active: true,lastFocusedWindow: true}, function(tabs) {
 	remove.className = "removeButtons";
 	remove.onclick = function () {
     this.parentElement.parentElement.removeChild(buttonParent);
-	 setTimeout(function() {
-		this.parentElement.className = this.parentElement.className + " removeshow";
-	}, 2000);
+		removeUrl(url);
 	};
 	buttonParent.appendChild(remove);
 	
@@ -84,12 +96,6 @@ chrome.tabs.query({active: true,lastFocusedWindow: true}, function(tabs) {
      chrome.tabs.update({url: $(this).attr('href')});
      return false;
    });
-   
-    document.getElementByclassName('removebuttons').onclick = function(){
-        this.parentNode.parentNode.parentNode
-        .removeChild(this.parentNode.parentNode);
-        return false;
-    };
 });
 
 
