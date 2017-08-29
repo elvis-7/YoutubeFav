@@ -5,7 +5,7 @@ min-width : 100px;
 }
 header {
 z-index : 3;
-background-color: #F44336;
+background-color: red;
 height : 50px;
 color : black;
 position : fixed;
