@@ -81,27 +81,15 @@ function removeUrl(url){
     $("#addtolist").click(function(){
 		var check = currUrl.substring(12,19) ;
 		if(check == "youtube"){
-				var flag = 1;
-				chrome.storage.local.get('urlList' ,function(items){
-					for(var i = 0; i<items.urlList.length;i++){
-						var ret =items.urlList[i];
-						if(ret.currUrl == currUrl){
-							flag = 0;
-							break;
-						}
-					}
-					if(flag == 1){	
-					youtubeMain(currUrl);
-					items.urlList.push({currUrl});
-					chrome.storage.local.set({ urlList: items.urlList }, function () {
-						if (chrome.runtime.lastError) {
-							alert('ERROR: ' + chrome.runtime.lastError.message);
-						}
-					});
-					}
-					else
-						alert('Already Exists');
-				});
+						chrome.storage.local.get({ urlList: []},function (items){
+							items.urlList.push({currUrl});
+							chrome.storage.local.set({ urlList: items.urlList }, function () {
+								if (chrome.runtime.lastError) {
+									alert('ERROR: ' + chrome.runtime.lastError.message);
+								}
+							});
+						});
+						youtubeMain(currUrl); 
 		}
 		else
 			alert('Not a valid youtube url');
